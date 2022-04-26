@@ -25,17 +25,17 @@ $bash_heigth: 100px;
 .tools{
   height: 100%;
   width: $bash_heigth;
-  background-color: #92817A;
+  background-color: #591c59;
 }
 .body-page{
   width: calc(100% - 100px);
-  background-color: #ebc7eb;
+  background-color: #d4cfd4;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .page-body-drag{
-  width: 70%;
+  width: 60%;
   height: 100%;
   background-color: white;
   position: relative;
