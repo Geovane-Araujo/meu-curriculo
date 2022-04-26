@@ -1,0 +1,49 @@
+$bash_heigth: 100px;
+.page{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+.config {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+}
+/*Botões dp menu*/
+.buttons-fun{
+  width: 100%;
+  height: 70px;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Parte que contem o drag */
+.tools{
+  height: 100%;
+  width: $bash_heigth;
+  background-color: #92817A;
+}
+.body-page{
+  width: calc(100% - 100px);
+  background-color: #ebc7eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-body-drag{
+  width: 70%;
+  height: 100%;
+  background-color: white;
+  position: relative;
+  .position{
+    position: relative;
+  }
+}
+.position{
+  position: relative;
+  border: solid 1px #ec1313;
+}
