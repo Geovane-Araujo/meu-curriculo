@@ -1,17 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import beforeeach from './beforeeach'
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../security/Login.vue')
   }
-  /* {
-    path: '/about',
-    name: 'about',
-    component: () => import('../views/AboutView.vue')
-  } */
 ]
 
 const router = createRouter({
@@ -19,4 +20,5 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach(beforeeach)
 export default router

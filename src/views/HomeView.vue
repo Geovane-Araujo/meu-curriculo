@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <DragComponent/>
+    Aqui é a home
   </div>
 </template>
 

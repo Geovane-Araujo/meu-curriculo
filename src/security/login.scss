@@ -1,0 +1,37 @@
+.login{
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-center{
+  height: 65%;
+  width: 60%;
+  position: relative;
+  display: flex;
+}
+.body-logo{
+  background-color: #0D2E75;
+  height: 100%;
+  width: 40%;
+  right: 0;
+  top: 10;
+  border-radius: 30px;
+}
+.container-body-fields{
+  height: 100%;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.body-fields{
+  background: linear-gradient(118.55deg, rgba(166, 211, 244, 0.2) 6.72%, rgba(0, 0, 0, 0) 87.31%), rgba(38, 110, 163, 0.72);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 80%;
+  border-radius: 10px;
+  
+}
