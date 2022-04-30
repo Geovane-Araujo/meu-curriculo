@@ -1,17 +1,18 @@
 <template>
   <div class="home">
-    Aqui é a home
+    <SideMenu/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import SideMenu from '@/components/menu/Menu.vue'
 import DragComponent from '@/components/drag/Drag.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    DragComponent
+    DragComponent,
+    SideMenu
   }
 }
 </script>

@@ -1,0 +1,46 @@
+.ui-menu{
+  height: 100vh;
+  width: 100vw;
+}
+/**Seção de Logo e botões sidebar **/
+.ui-header{
+  height: 50px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.ui-sec-logo{
+  height: 100%;
+  width: 70px;
+  background-color: #0D2E75;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: white;
+}
+.ui-sec-botoes{
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/**Seção do corpo do menu inicial**/
+.ui-body{
+  height: calc(100% - 50px);
+}
+.ui-side{
+  height: 100%;
+  width: 70px;
+  background-color: #0D2E75;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+.ui-side-butons{
+  height: 60px;
+  width: 60px;
+}
+.ui-side-butons:hover{
+  background: #082563;
+}

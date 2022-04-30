@@ -1,5 +1,5 @@
 export default async(to, from, next) => {
-  if(to.name === 'login') {
+  if(to.name === 'login' || to.name === 'register') {
     next()
   } else if (to.name !== 'login' && !verifyToken()) {
     next({ name: 'login' })
