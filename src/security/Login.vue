@@ -2,8 +2,8 @@
   <div class="login">
     <div class="container-center">
       <div class="container-body-fields">
-        <div class="body-fields">
-          <InputText type="text" v-model="value" />
+        <div class="body-fields p-input-filled">
+          <InputFilled v-model="form.login" />
         </div>
       </div>
       <div class="body-logo">
