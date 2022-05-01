@@ -10,9 +10,9 @@
     </div>
     <div class="ui-body">
       <div class="ui-side">
-        <div v-for="menu in butons" :key="menu.label" class="ui-side-butons">
+        <div v-for="menu in buttons" :key="menu.label" class="ui-side-butons">
           <div class="ui-side-butons-btn">
-            <i :class="menu.icon"></i>
+            <i :class="menu.icon" ></i>
           </div>
         </div>
       </div>
