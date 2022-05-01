@@ -22,15 +22,27 @@ export default {
       var dashBoard = new Menu()
       dashBoard.label = 'Dashboard'
       dashBoard.icon = 'mc mc-dashboard'
-      dashBoard.route = 'Dash'
+      dashBoard.route = 'dash'
       menu.push(dashBoard)
 
+      var userData = new Menu()
+      userData.label = 'Dados do Usuário'
+      userData.icon = 'mc mc-person-outline-white'
+      userData.route = 'userdata'
+      menu.push(userData)
+
+      var curriculum = new Menu()
+      curriculum.label = 'Modelos de Curriculos'
+      curriculum.icon = 'mc mc-curriculo'
+      curriculum.route = 'curriculummodel'
+      menu.push(curriculum)
+
       var estudio = new Menu()
-      estudio.label = 'Estudio'
-      estudio.icon = 'mc mc-dashboard'
-      estudio.route = 'Dash'
+      estudio.label = 'Curriculo Estudio'
+      estudio.icon = 'mc mc-curriculo-estudio'
+      estudio.route = 'curriculumstudio'
       menu.push(estudio)
-      
+
     }
     return { menu }
   },

@@ -1,5 +1,5 @@
 export default async(to, from, next) => {
-  if(to.name === 'login' || to.name === 'register') {
+  if(verifyPages(to.name)) {
     next()
   } else if (to.name !== 'login' && !verifyToken()) {
     next({ name: 'login' })
@@ -23,4 +23,17 @@ function verifyToken() {
 
 function validateToken() {
   return true
+}
+
+function verifyPages(name) {
+  switch(name){
+    case 'login':
+      return true;
+    case 'register':
+      return true;
+    case 'curriculumstudio':
+      return true;
+    default:
+      return false;
+  }
 }

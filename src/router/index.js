@@ -13,6 +13,16 @@ const routes = [
         path: '/dash',
         name: 'dash',
         component: () => import('../views/home/dash/Dash.vue')
+      },
+      {
+        path: '/userdata',
+        name: 'userdata',
+        component: () => import('../views/home/user-data/UserData.vue')
+      },
+      {
+        path: '/curriculummodel',
+        name: 'curriculummodel',
+        component: () => import('../views/home/curriculum-model/CurriculumModel.vue')
       }
     ]
   },
@@ -25,6 +35,11 @@ const routes = [
     path: '/register',
     name: 'register',
     component: () => import('../views/register/Register.vue')
+  },
+  {
+    path: '/curriculumstudio',
+    name: 'curriculumstudio',
+    component: () => import('../views/curriculumStudio/CurriculumStudio.vue')
   }
 ]
 

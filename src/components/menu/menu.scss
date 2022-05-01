@@ -61,3 +61,35 @@
   height: 100%;
   width: calc(100% - 70px);
 }
+.ui-btn{
+  margin-right: 15px;
+  background-color: white;
+  border: none;
+}
+.ui-btn:hover{
+  background: white;
+}
+.ui-sec{
+  display: flex;
+}
+.ui-sec-title{
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  margin-left: 20px;
+  font-size: 32px;
+  font-weight: bold;
+}
+.ui-button:hover{
+  background-color: #266EA3;
+}
+.ui-person-button{
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  border-radius: 10px;
+}
