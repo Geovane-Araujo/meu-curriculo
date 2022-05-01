@@ -1,17 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '../views/home/HomeView.vue'
+import beforeeach from './beforeeach'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    redirect: { name: 'dash' },
+    children: [
+      {
+        path: '/dash',
+        name: 'dash',
+        component: () => import('../views/home/dash/Dash.vue')
+      }
+    ]
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/security/Login.vue')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import('../views/register/Register.vue')
   }
-  /* {
-    path: '/about',
-    name: 'about',
-    component: () => import('../views/AboutView.vue')
-  } */
 ]
 
 const router = createRouter({
@@ -19,4 +33,5 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach(beforeeach)
 export default router

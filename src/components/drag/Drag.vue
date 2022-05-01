@@ -4,9 +4,6 @@
       <div @click="onClick" class="buttons-fun config">
         Conteiner
       </div>
-      <div @click="onSave" class="buttons-fun config">
-        Save
-      </div>
     </div>
     <div class="body-page">
       <div id="drg" ref="drg" class="page-body-drag">

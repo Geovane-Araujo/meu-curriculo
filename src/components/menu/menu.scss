@@ -1,0 +1,63 @@
+.ui-menu{
+  height: 100vh;
+  width: 100vw;
+}
+/**Seção de Logo e botões sidebar **/
+.ui-header{
+  height: 50px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.ui-sec-logo{
+  height: 100%;
+  width: 70px;
+  background-color: #0D2E75;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: white;
+}
+.ui-sec-botoes{
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/**Seção do corpo do menu inicial**/
+.ui-body{
+  height: calc(100% - 50px);
+  display: flex;
+}
+/*Side Menu*/
+.ui-side{
+  height: 100%;
+  width: 70px;
+  background-color: #0D2E75;
+  color: white;
+}
+.ui-side-butons{
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ui-side-butons-btn{
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.ui-side-butons-btn:hover{
+  background: #082563;
+}
+/** Content **/
+.ui-content{
+  overflow: hidden;
+  height: 100%;
+  width: calc(100% - 70px);
+}
