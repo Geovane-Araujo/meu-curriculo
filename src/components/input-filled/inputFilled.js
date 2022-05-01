@@ -7,7 +7,6 @@ export default {
     const onEmitInput = () => {
       this.$emit('input', this.val)
     }
-
     return { val, onEmitInput }
   }
 }

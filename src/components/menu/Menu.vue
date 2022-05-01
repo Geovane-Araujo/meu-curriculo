@@ -10,7 +10,14 @@
     </div>
     <div class="ui-body">
       <div class="ui-side">
-        <div class="ui-side-butons"></div>
+        <div v-for="menu in butons" :key="menu.label" class="ui-side-butons">
+          <div class="ui-side-butons-btn">
+            <i :class="menu.icon"></i>
+          </div>
+        </div>
+      </div>
+      <div class="ui-content">
+        <router-view/>
       </div>
     </div>
   </div>

@@ -8,6 +8,8 @@ import store from './store'
 import 'primevue/resources/themes/saga-blue/theme.css'
 import 'primevue/resources/primevue.min.css'
 import 'primeflex/primeflex.css'
+import '@/assets/icon/icon.scss'
+import 'primeicons/primeicons.css';
 
 
 

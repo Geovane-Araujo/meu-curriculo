@@ -28,19 +28,36 @@
 /**Seção do corpo do menu inicial**/
 .ui-body{
   height: calc(100% - 50px);
+  display: flex;
 }
+/*Side Menu*/
 .ui-side{
   height: 100%;
   width: 70px;
   background-color: #0D2E75;
   color: white;
-  display: flex;
-  justify-content: center;
 }
 .ui-side-butons{
-  height: 60px;
-  width: 60px;
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.ui-side-butons:hover{
+.ui-side-butons-btn{
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.ui-side-butons-btn:hover{
   background: #082563;
+}
+/** Content **/
+.ui-content{
+  overflow: hidden;
+  height: 100%;
+  width: calc(100% - 70px);
 }

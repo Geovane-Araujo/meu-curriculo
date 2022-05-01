@@ -6,7 +6,15 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    redirect: { name: 'dash' },
+    children: [
+      {
+        path: '/dash',
+        name: 'dash',
+        component: () => import('../views/home/dash/Dash.vue')
+      }
+    ]
   },
   {
     path: '/login',
