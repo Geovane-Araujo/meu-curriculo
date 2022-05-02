@@ -9,6 +9,7 @@ export default {
   setup () {
     let drg = ref(null)
     let coordenadas = ref(Object);
+    let elementSelected = '';
     var countelements = 0;
     var menu = ref(Array);
     const repositoryContainer = new Container(countelements, coordenadas);
@@ -17,32 +18,46 @@ export default {
 
     onMounted(() => {
       menu.value = onInitialize();
+      addKeyBoards();
     });
 
     function onContainer() {
       var element = repositoryContainer.onCreateElement()
       drg.value.appendChild(element)
       element.addEventListener('mousedown', repositoryContainer.onStart)
+      element.addEventListener('click', onSelected)
     }
 
     function onLine(){
       var element = repositoryLine.onCreateElement()
       drg.value.appendChild(element)
       element.addEventListener('mousedown', repositoryLine.onStart)
+      element.addEventListener('click', onSelected)
     }
 
     function onField(){
       var element = repositoryLine.onCreateElement()
       drg.value.appendChild(element)
       element.addEventListener('mousedown', repositoryLine.onStart)
+      element.addEventListener('click', onSelected)
     }
     function onImage(){
       var element = repositoryLine.onCreateElement()
       drg.value.appendChild(element)
       element.addEventListener('mousedown', repositoryLine.onStart)
+      element.addEventListener('click', onSelected)
     }
     function onExit(){
       router.go(-1);
+    }
+    function onSelected(e){
+      elementSelected = e.srcElement.id;
+    }
+    function onRemove(id){
+      console.log(id);
+      var element = document.getElementById(id);
+      element.remove();
+      elementSelected = ''
     }
 
 
@@ -75,6 +90,19 @@ export default {
         }
       ]
       return menu;
+    }
+
+    function addKeyBoards(){
+      document.addEventListener('keydown', (event) => {
+        switch(event.code){
+          case 'Delete':
+            if(elementSelected !== '')
+              onRemove(elementSelected);
+            break;
+          default:
+            break;
+        }
+      }, false);
     }
 
     return { onContainer, drg, menu }
