@@ -1,44 +1,82 @@
 import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import Container from './components/container'
+import Line from './components/line'
+
 
 export default {
   name: 'DragComponent',
   setup () {
     let drg = ref(null)
-    let temp = ''
-    let coordenadas = ref(Object)
-    var countelements = 0
+    let coordenadas = ref(Object);
+    var countelements = 0;
+    var menu = ref(Array);
+    const repositoryContainer = new Container(countelements, coordenadas);
+    const repositoryLine = new Line(countelements, coordenadas);
+    const router = useRouter()
+
     onMounted(() => {
-    })
-    const onClick = () => {
-      var element = onCreateElement()
+      menu.value = onInitialize();
+    });
+
+    function onContainer() {
+      var element = repositoryContainer.onCreateElement()
       drg.value.appendChild(element)
-      element.addEventListener('mousedown', onStart)
+      element.addEventListener('mousedown', repositoryContainer.onStart)
     }
-    const onCreateElement = () => {
-      var element = document.createElement('div')
-      element.id = 'element_id_' + (countelements += 1)
-      element.style.cssText = 'position:absolute;border:solid 1px;height:50px;width:200px;top:10px;';
-      coordenadas.value[element.id] = { x: 0, y: 0 }
-      
-      return element
+
+    function onLine(){
+      var element = repositoryLine.onCreateElement()
+      drg.value.appendChild(element)
+      element.addEventListener('mousedown', repositoryLine.onStart)
     }
-    const onStart = (e) => {
-      var element = document.getElementById(e.srcElement.id)
-      coordenadas.value[e.srcElement.id].x = e.pageX - element.offsetLeft
-      coordenadas.value[e.srcElement.id].y = e.pageY - element.offsetTop
-      temp = e.srcElement.id
-      addEventListener('mousemove', onMove)
-      addEventListener('mouseup', onEnd)
+
+    function onField(){
+      var element = repositoryLine.onCreateElement()
+      drg.value.appendChild(element)
+      element.addEventListener('mousedown', repositoryLine.onStart)
     }
-    const onMove = (e) => {
-      var x = (e.pageX - coordenadas.value[temp].x)
-      var y = (e.pageY - coordenadas.value[temp].y)
-      document.getElementById(temp).style.cssText = 'position:absolute;border:solid 1px;height:50px;width:200px;' + 'top:' + y + 'px;left:' + x + 'px;';
+    function onImage(){
+      var element = repositoryLine.onCreateElement()
+      drg.value.appendChild(element)
+      element.addEventListener('mousedown', repositoryLine.onStart)
     }
-    const onEnd = () => {
-      removeEventListener("mousemove", onMove);
-      removeEventListener("mouseup", onEnd);
+    function onExit(){
+      router.go(-1);
     }
-    return { onClick, drg }
+
+
+    function onInitialize(){
+      var menu = [
+        {
+          icon: 'mc mc-icon-container',
+          function: onContainer,
+          label: 'Container'
+        },
+        {
+          icon: 'mc mc-icon-line',
+          function: onLine,
+          label: 'Divisor'
+        },
+        {
+          icon: 'mc mc-icon-field',
+          function: onField,
+          label: 'Campo'
+        },
+        {
+          icon: 'mc mc-icon-image',
+          function: onImage,
+          label: 'Imagem'
+        },
+        {
+          icon: 'mc mc-icon-exit',
+          function: onExit,
+          label: 'Sair'
+        }
+      ]
+      return menu;
+    }
+
+    return { onContainer, drg, menu }
   }
 }

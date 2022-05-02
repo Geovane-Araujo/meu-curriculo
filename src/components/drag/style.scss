@@ -1,7 +1,27 @@
-$bash_heigth: 100px;
-.page{
+$bash_heigth: 70px;
+.studio{
   height: 100vh;
   width: 100vw;
+}
+.header{
+  height: 50px;
+  background-color: white;
+  display: flex;
+  -webkit-box-shadow: 5px 10px 28px -3px rgba(191,191,191,0.78); 
+  box-shadow: 5px 10px 28px -3px rgba(191,191,191,0.78);
+}
+.ui-sec-logo{
+  height: 100%;
+  width: 70px;
+  background-color: #0D2E75;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: white;
+}
+.body{
+  height: calc(100% - 50px);
+  width: 100%;
   display: flex;
 }
 .config {
@@ -16,7 +36,7 @@ $bash_heigth: 100px;
 .buttons-fun{
   width: 100%;
   height: 70px;
-  background-color: aliceblue;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,18 +45,26 @@ $bash_heigth: 100px;
 .tools{
   height: 100%;
   width: $bash_heigth;
-  background-color: #591c59;
+  background-color: #0D2E75;
 }
 .body-page{
-  width: calc(100% - 100px);
-  background-color: #d4cfd4;
+  width: 100%;
   display: flex;
-  justify-content: center;
+}
+.aria-design{
+  width: calc(100% - 350px);
+  display: flex;
   align-items: center;
+  justify-content: center;
+}
+.aria-components{
+  width: 350px;
+  background-color: #0D2E75;
 }
 .page-body-drag{
+  margin-top: 10px;
   width: 60%;
-  height: 100%;
+  height: calc(100% - 10px);
   background-color: white;
   position: relative;
   .position{
@@ -46,4 +74,30 @@ $bash_heigth: 100px;
 .position{
   position: relative;
   border: solid 1px #ec1313;
+}
+.ui-sec-title{
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  margin-left: 20px;
+  font-size: 32px;
+}
+.ui-side-butons{
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ui-side-butons-btn{
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.ui-side-butons-btn:hover{
+  background: #082563;
 }
