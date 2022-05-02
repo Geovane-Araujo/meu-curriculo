@@ -8,6 +8,8 @@
   background-color: white;
   display: flex;
   justify-content: space-between;
+  -webkit-box-shadow: 5px 10px 28px -3px rgba(191,191,191,0.78); 
+  box-shadow: 5px 10px 28px -3px rgba(191,191,191,0.78);
 }
 .ui-sec-logo{
   height: 100%;
@@ -60,4 +62,36 @@
   overflow: hidden;
   height: 100%;
   width: calc(100% - 70px);
+}
+.ui-btn{
+  margin-right: 15px;
+  background-color: white;
+  border: none;
+}
+.ui-btn:hover{
+  background: white;
+}
+.ui-sec{
+  display: flex;
+}
+.ui-sec-title{
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  margin-left: 20px;
+  font-size: 32px;
+  font-weight: bold;
+}
+.ui-button:hover{
+  background-color: #266EA3;
+}
+.ui-person-button{
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  border-radius: 10px;
 }
