@@ -1,6 +1,8 @@
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import Container from './components/container'
+import Field from './components/field'
+import Image from './components/image'
 import Line from './components/line'
 
 
@@ -14,6 +16,8 @@ export default {
     var menu = ref(Array);
     const repositoryContainer = new Container(countelements, coordenadas);
     const repositoryLine = new Line(countelements, coordenadas);
+    const repositoryImage = new Image(countelements, coordenadas);
+    const repositoryField = new Field(countelements, coordenadas);
     const router = useRouter()
 
     onMounted(() => {
@@ -36,15 +40,15 @@ export default {
     }
 
     function onField(){
-      var element = repositoryLine.onCreateElement()
+      var element = repositoryField.onCreateElement()
       drg.value.appendChild(element)
-      element.addEventListener('mousedown', repositoryLine.onStart)
+      element.addEventListener('mousedown', repositoryField.onStart)
       element.addEventListener('click', onSelected)
     }
     function onImage(){
-      var element = repositoryLine.onCreateElement()
+      var element = repositoryImage.onCreateElement()
       drg.value.appendChild(element)
-      element.addEventListener('mousedown', repositoryLine.onStart)
+      element.addEventListener('mousedown', repositoryImage.onStart)
       element.addEventListener('click', onSelected)
     }
     function onExit(){

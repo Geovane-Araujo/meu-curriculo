@@ -1,20 +1,20 @@
 import { ref } from 'vue';
 
-export default class Line{
+export default class Field{
 
   coordenadas = ref(Object);
   countelements = 0;
   temp = ''
 
-  Line(countelements,coordenadas ){
+  Field(countelements,coordenadas ){
     this.coordenadas.value = coordenadas;
     this.countelements = countelements;
   }
 
   onCreateElement = () => {
-    var element = document.createElement('hr')
+    var element = document.createElement('div')
     element.id = 'element_id_' + (this.countelements += 1)
-    element.style.cssText = 'position:absolute;border:solid 1px;height:2px;width:200px;top:10px;';
+    element.style.cssText = 'position:absolute;border:solid 1px;height:50px;width:200px;top:10px;';
     this.coordenadas.value[element.id] = { x: 0, y: 0 }
     return element
   }
@@ -31,7 +31,7 @@ export default class Line{
   onMove = (e) => {
     var x = (e.pageX - this.coordenadas.value[this.temp].x)
     var y = (e.pageY - this.coordenadas.value[this.temp].y)
-    document.getElementById(this.temp).style.cssText = 'position:absolute;border:solid 1px;height:2px;width:200px;' + 'top:' + y + 'px;left:' + x + 'px;';
+    document.getElementById(this.temp).style.cssText = 'position:absolute;border:solid 1px;height:50px;width:200px;' + 'top:' + y + 'px;left:' + x + 'px;';
   }
 
   onEnd = () => {
