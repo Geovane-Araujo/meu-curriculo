@@ -21,7 +21,6 @@
           <div id="drg" ref="drg" class="page-body-drag"></div>
         </div>
         <div class="aria-components" >
-          Ola
         </div>
     </div>
   </div>
