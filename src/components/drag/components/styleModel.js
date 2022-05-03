@@ -5,15 +5,24 @@ export default class StyleModel{
   left = new String('')
   position = new String('absolute')
   border = new String('solid ')
-  border_size = new String('1px')
+  contain_border = new Boolean(true)
+  border_size = new String('1')
 
   toString(){
-    return 'position:' + this.position +
-           ';border:' + this.border + this.border_size +
-           ';height:' + this.height + 'px;' +
-           'width:' + this.width + ';' +
-           'height:' + this.height + ';' +
-           'top:' + this.top + ';' +
-           'lef:' + this.left + ';'
+    var cssText = ''
+    if(this.position !== '')
+      cssText = 'position:' + this.position + 'px;';
+    if(this.border !== '' && this.contain_border)
+      cssText = 'border: solid ' + this.border_size + ' px;';
+    if(this.height !== '')
+      cssText = 'height: ' + this.height + ' px;';
+    if(this.width !== '')
+      cssText = 'width: ' + this.width + ' px;';
+    if(this.top !== '')
+      cssText = 'top: ' + this.top + ' px;';
+    if(this.left !== '')
+      cssText = 'left: ' + this.left + ' px;'
+
+    return cssText;
   }
 }
