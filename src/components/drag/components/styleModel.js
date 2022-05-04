@@ -1,28 +1,42 @@
 export default class StyleModel{
-  width = new String('')
-  height = new String('')
-  top = new String('')
-  left = new String('')
-  position = new String('absolute')
-  border = new String('solid ')
-  contain_border = new Boolean(true)
-  border_size = new String('1')
+  id = ''
+  width = ''
+  height = ''
+  top = ''
+  left = ''
+  bottom = ''
+  right = ''
+  position = 'absolute'
+  border = 'solid '
+  contain_border = true
+  border_size = '1'
+  default = ''
 
-  toString(){
+  toCss(){
     var cssText = ''
     if(this.position !== '')
-      cssText = 'position:' + this.position + 'px;';
+      cssText += 'position:absolute;';
     if(this.border !== '' && this.contain_border)
-      cssText = 'border: solid ' + this.border_size + ' px;';
+      cssText += 'border:solid ' + this.border_size + 'px;';
     if(this.height !== '')
-      cssText = 'height: ' + this.height + ' px;';
+      cssText += 'height: ' + this.height + 'px;';
     if(this.width !== '')
-      cssText = 'width: ' + this.width + ' px;';
+      cssText += 'width:' + this.width + 'px;';
     if(this.top !== '')
-      cssText = 'top: ' + this.top + ' px;';
+      cssText += 'top:' + this.top + 'px;';
     if(this.left !== '')
-      cssText = 'left: ' + this.left + ' px;'
+      cssText += 'left:' + this.left + 'px;'
 
     return cssText;
+  }
+  onGetCss(element, top, left){
+    this.border = element.style.border;
+    this.height = this.onRegexNumber(element.style.height);
+    this.width = this.onRegexNumber(element.style.width);
+    this.left = left;
+    this.top = top;
+  }
+  onRegexNumber(text){
+    return text.replace(/\D/g,'');
   }
 }

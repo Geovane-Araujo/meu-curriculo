@@ -11,6 +11,7 @@ import 'primevue/resources/primevue.min.css'
 import 'primeflex/primeflex.css'
 import '@/assets/icon/icon.scss'
 import 'primeicons/primeicons.css';
+import '@/assets/app.scss';
 
 
 

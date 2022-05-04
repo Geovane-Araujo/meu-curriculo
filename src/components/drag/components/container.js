@@ -5,16 +5,21 @@ export default class Container{
   coordenadas = ref(Object);
   countelements = 0;
   temp = ''
+  tempStyleModel = ref(null);
 
   Container(countelements,coordenadas ){
     this.coordenadas.value = coordenadas;
     this.countelements = countelements;
   }
 
-  onCreateElement = () => {
+  onCreateElement = (componentProperties) => {
     var element = document.createElement('div')
     element.id = 'element_id_' + (this.countelements += 1)
-    element.style.cssText = 'position:absolute;border:solid 1px;height:50px;width:200px;top:10px;';
+    componentProperties.id = element.id;
+    componentProperties.height = 50;
+    componentProperties.width = 200;
+    this.tempStyleModel.value = componentProperties;
+    element.style.cssText = componentProperties.toCss();
     this.coordenadas.value[element.id] = { x: 0, y: 0 }
     return element
   }
@@ -31,7 +36,10 @@ export default class Container{
   onMove = (e) => {
     var x = (e.pageX - this.coordenadas.value[this.temp].x)
     var y = (e.pageY - this.coordenadas.value[this.temp].y)
-    document.getElementById(this.temp).style.cssText = 'position:absolute;border:solid 1px;height:50px;width:200px;' + 'top:' + y + 'px;left:' + x + 'px;';
+    var styleCss = this.tempStyleModel.value;
+    styleCss.id = this.temp;
+    styleCss.onGetCss(document.getElementById(this.temp),y ,x);
+    document.getElementById(this.temp).style.cssText = styleCss.toCss();
   }
 
   onEnd = () => {

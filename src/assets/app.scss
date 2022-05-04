@@ -1,0 +1,26 @@
+.ui-button:hover{
+  background-color: #266EA3;
+}
+.ui-person-button{
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+.p-input-filled{
+  border: solid 1px white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  color: aliceblue;
+  background: rgba($color: #ffffff, $alpha: 0.0)
+}
+.p-input-filled:focus{
+  border: solid 0px #0D2E75;
+}
+.margin-default-field{
+  margin-top: 30px;
+}
