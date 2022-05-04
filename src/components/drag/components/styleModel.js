@@ -4,6 +4,8 @@ export default class StyleModel{
   height = ''
   top = ''
   left = ''
+  bottom = ''
+  right = ''
   position = 'absolute'
   border = 'solid '
   contain_border = true

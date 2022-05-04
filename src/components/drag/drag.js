@@ -4,6 +4,8 @@ import Container from './components/container'
 import Field from './components/field'
 import Image from './components/image'
 import Line from './components/line'
+import InputText from 'primevue/inputtext'
+import StyleModel from './components/styleModel'
 
 
 export default {
@@ -15,9 +17,11 @@ export default {
     let coordenadas = ref(Object);
     let elementSelected = '';
     let isCollapsed = false;
+    let refBody = ref();
     var countelements = 0;
     var menu = ref(Array);
     var id = null;
+    var componentProperties = ref(new StyleModel());
     const repositoryContainer = new Container(countelements, coordenadas);
     const repositoryLine = new Line(countelements, coordenadas);
     const repositoryImage = new Image(countelements, coordenadas);
@@ -31,7 +35,8 @@ export default {
     });
 
     function onContainer() {
-      var element = repositoryContainer.onCreateElement()
+      componentProperties.value = new StyleModel()
+      var element = repositoryContainer.onCreateElement(componentProperties.value)
       drg.value.appendChild(element)
       element.addEventListener('mousedown', repositoryContainer.onStart)
       element.addEventListener('click', onSelected)
@@ -71,9 +76,9 @@ export default {
       element.remove();
       elementSelected = ''
     }
-
     function onPropertiesInit(){
       document.getElementById('ref-title').style.display = 'none';
+      refBody.value.style.display = 'none';
       iconbtn.value.style.transform = 'rotate(-180deg)';
     }
     function onInitialize(){
@@ -146,6 +151,7 @@ export default {
       }
       iconbtn.value.style.transform = 'rotate(0deg)';
       document.getElementById('ref-title').style.display = 'flex';
+      refBody.value.style.display = 'flex';
     }
 
     function onCollapsedClose(){
@@ -163,9 +169,13 @@ export default {
         }
       }
       iconbtn.value.style.transform = 'rotate(-180deg)';
+      refBody.value.style.display = 'none';
       document.getElementById('ref-title').style.display = 'none';
     }
 
-    return { onContainer, drg, menu, iconbtn, mnuproperties, onCollapsed }
+    return { onContainer, drg, menu, iconbtn, mnuproperties, onCollapsed, refBody, componentProperties }
+  },
+  components: {
+    InputText
   }
 }
