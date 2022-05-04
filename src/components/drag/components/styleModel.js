@@ -1,4 +1,5 @@
 export default class StyleModel{
+  id = ''
   width = ''
   height = ''
   top = ''
