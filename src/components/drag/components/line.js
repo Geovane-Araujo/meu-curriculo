@@ -1,4 +1,5 @@
 import { ref } from 'vue';
+import StyleModel from './styleModel';
 
 export default class Line{
 
@@ -14,7 +15,12 @@ export default class Line{
   onCreateElement = () => {
     var element = document.createElement('hr')
     element.id = 'element_id_' + (this.countelements += 1)
-    element.style.cssText = 'position:absolute;border:solid 1px;height:2px;width:200px;top:10px;';
+    var styleCss = new StyleModel();
+    // default
+    styleCss.height = 2;
+    styleCss.width = 200;
+    styleCss.top = 10;
+    element.style.cssText = styleCss.toCss();
     this.coordenadas.value[element.id] = { x: 0, y: 0 }
     return element
   }
@@ -31,7 +37,9 @@ export default class Line{
   onMove = (e) => {
     var x = (e.pageX - this.coordenadas.value[this.temp].x)
     var y = (e.pageY - this.coordenadas.value[this.temp].y)
-    document.getElementById(this.temp).style.cssText = 'position:absolute;border:solid 1px;height:2px;width:200px;' + 'top:' + y + 'px;left:' + x + 'px;';
+    var styleCss = new StyleModel();
+    styleCss.onGetCss(document.getElementById(this.temp),y ,x);
+    document.getElementById(this.temp).style.cssText = styleCss.toCss();
   }
 
   onEnd = () => {
