@@ -55,6 +55,7 @@ export default {
       element.addEventListener('mousedown', repositoryField.onStart)
       element.addEventListener('click', onSelected)
     }
+    
     function onImage(){
       var element = repositoryImage.onCreateElement()
       drg.value.appendChild(element)
@@ -76,11 +77,13 @@ export default {
       element.remove();
       elementSelected = ''
     }
+
     function onPropertiesInit(){
       document.getElementById('ref-title').style.display = 'none';
       refBody.value.style.display = 'none';
       iconbtn.value.style.transform = 'rotate(-180deg)';
     }
+
     function onInitialize(){
       var menu = [
         {

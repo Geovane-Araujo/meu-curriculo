@@ -39,7 +39,7 @@ export default class Container{
     var styleCss = this.tempStyleModel.value;
     styleCss.id = this.temp;
     styleCss.onGetCss(document.getElementById(this.temp),y ,x);
-    document.getElementById(this.temp).style.cssText = styleCss.toCss();
+    document.getElementById(this.temp).className = styleCss.toStyleSheet();
   }
 
   onEnd = () => {
