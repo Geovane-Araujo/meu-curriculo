@@ -47,7 +47,9 @@ export default class StyleModel{
     if(this.left !== '')
       cssText += 'left:' + this.left + 'px;'
 
-    cssText += '\n}';
+    cssText += '\n} ';
+
+    cssText += this.onAddClassHover();
 
     var styletag = document.createElement('style');
     if(styletag.styleSheet){
@@ -56,7 +58,7 @@ export default class StyleModel{
       styletag.appendChild(document.createTextNode(cssText));
     }
     document.getElementsByTagName('head')[0].appendChild(styletag);
-    this.onAddClassHover();
+    
     return 'wc';
   }
 
@@ -70,17 +72,9 @@ export default class StyleModel{
   onRegexNumber(text){
     return text.replace(/\D/g,'');
   }
-  onAddClassHover = async () => {
-    await fetch('data/style.css').then(res => {
-      var styletag = document.createElement('style');
-      if(styletag.styleSheet){
-        styletag.styleSheet.cssText = res.text();
-      } else {
-        styletag.appendChild(document.createTextNode(res.text()));
-      }
-      document.getElementsByTagName('head')[0].appendChild(styletag);
-    }).catch(err => {
-      console.log(err);
-    });
+  onAddClassHover() {
+    let hover = '.wc:hover{ border: 3px solid #0D2E75;}';
+    return hover;
   }
+    
 }
