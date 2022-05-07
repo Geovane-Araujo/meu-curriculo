@@ -12,7 +12,6 @@ export default class StyleModel{
   border_size = '1'
   default = ''
 
-  // @deprecated
   toCss(){ 
     var cssText = ''
     if(this.position !== '')
@@ -49,7 +48,6 @@ export default class StyleModel{
 
     cssText += '\n} ';
 
-    cssText += this.onAddClassHover();
 
     var styletag = document.createElement('style');
     if(styletag.styleSheet){
@@ -71,10 +69,5 @@ export default class StyleModel{
   }
   onRegexNumber(text){
     return text.replace(/\D/g,'');
-  }
-  onAddClassHover() {
-    let hover = '.wc:hover{ border: 3px solid #0D2E75;}';
-    return hover;
-  }
-    
+  }    
 }
