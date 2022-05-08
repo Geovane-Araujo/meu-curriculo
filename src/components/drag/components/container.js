@@ -1,4 +1,5 @@
 import { ref } from 'vue';
+import WCElement from './element';
 
 export default class Container{
 
@@ -6,6 +7,7 @@ export default class Container{
   countelements = 0;
   temp = ''
   tempStyleModel = ref(null);
+  el = new WCElement();
 
   Container(countelements,coordenadas ){
     this.coordenadas.value = coordenadas;
@@ -13,11 +15,7 @@ export default class Container{
   }
 
   onCreateElement = (componentProperties) => {
-    var element = document.createElement('div')
-    element.id = 'element_id_' + (this.countelements += 1)
-    componentProperties.id = element.id;
-    componentProperties.height = 50;
-    componentProperties.width = 200;
+    var element = this.el.onCreateElement(componentProperties, 50, 200)
     this.tempStyleModel.value = componentProperties;
     element.style.cssText = componentProperties.toCss();
     this.coordenadas.value[element.id] = { x: 0, y: 0 }
@@ -39,7 +37,7 @@ export default class Container{
     var styleCss = this.tempStyleModel.value;
     styleCss.id = this.temp;
     styleCss.onGetCss(document.getElementById(this.temp),y ,x);
-    document.getElementById(this.temp).className = styleCss.toStyleSheet();
+    document.getElementById(this.temp).style.cssText = styleCss.toCss();
   }
 
   onEnd = () => {

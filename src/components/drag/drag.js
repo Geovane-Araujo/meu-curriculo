@@ -6,6 +6,7 @@ import Image from './components/image'
 import Line from './components/line'
 import InputText from 'primevue/inputtext'
 import StyleModel from './components/styleModel'
+import WCElement from './components/element'
 
 
 export default {
@@ -22,6 +23,7 @@ export default {
     var menu = ref(Array);
     var id = null;
     var componentProperties = ref(new StyleModel());
+    let el = new WCElement();
     const repositoryContainer = new Container(countelements, coordenadas);
     const repositoryLine = new Line(countelements, coordenadas);
     const repositoryImage = new Image(countelements, coordenadas);
@@ -32,6 +34,7 @@ export default {
       menu.value = onInitialize();
       addKeyBoards();
       onPropertiesInit();
+      el.onApplyCssElement();
     });
 
     function onContainer() {
