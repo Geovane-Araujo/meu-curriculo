@@ -25,26 +25,34 @@
   margin-top: 30px;
 }
 
-.div-a{ 
-  background-color: #0D2E75;
-}
 .wc:hover{
   border: #ffffff;
   outline: 2px solid #266EA3;
-  padding: 10px 10px;
   cursor: move;
-}
-.wc:active{
-  border: #ffffff;
-  outline: 2px solid #266EA3;
-  padding: 10px 10px;
-  cursor: move;
-}
-.square-size{
-  width: 10;
-  height: 10;
-  position: relative;
-}
-.square-size-top-left{
-  left: 0px;
+  .square-size{
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    background-color: #266EA3
+  }
+  .square-size-top-left{
+    left: -4px;
+    top: -4px;
+    cursor: se-resize;
+  }
+  .square-size-top-right{
+    right: -4px;
+    top: -4px;
+    cursor: sw-resize;
+  }
+  .square-size-bottom-left{
+    left: -4px;
+    bottom: -4px;
+    cursor: sw-resize;
+  }
+  .square-size-bottom-rigth{
+    right: -4px;
+    bottom: -4px;
+    cursor: se-resize;
+  }
 }
