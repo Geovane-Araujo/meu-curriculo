@@ -10,8 +10,10 @@ export default class WCElement{
     componentProperties.width = width;
     element.style.cssText = componentProperties.toCss();
     element.className = ' wc';
+    this.onAddSizedConfiguration(element);
     return element;
   }
+
   onAddSizedConfiguration(element){
     // cria os elementos de borda
     var internalElementTopLeft = document.createElement('div');
@@ -20,11 +22,22 @@ export default class WCElement{
     var internalElementBottonRigth = document.createElement('div');
 
     // adiciona a classe de borda
-    internalElementTopLeft.classList.add('square-size'); 
+    internalElementTopLeft.classList.add('square-size');
     internalElementTopLeft.classList.add('square-size-top-left');
 
-    element.appendChild(internalElementTopLeft);
+    internalElementTopRigth.classList.add('square-size');
+    internalElementTopRigth.classList.add('square-size-top-right');
 
+    internalElementBottonLeft.classList.add('square-size');
+    internalElementBottonLeft.classList.add('square-size-bottom-left');
+
+    internalElementBottonRigth.classList.add('square-size');
+    internalElementBottonRigth.classList.add('square-size-bottom-rigth');
+
+    element.appendChild(internalElementTopLeft);
+    element.appendChild(internalElementTopRigth);
+    element.appendChild(internalElementBottonLeft);
+    element.appendChild(internalElementBottonRigth);
 
   }
   
